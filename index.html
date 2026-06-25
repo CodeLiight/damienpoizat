@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Damien Poizat — Responsable Opérationnel de Laboratoire</title>
+<meta name="description" content="CV de Damien Poizat — Manager Qualité & Responsable de Laboratoire, expert ISO 17025, métrologie et ingénierie de données.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ECE4D5;
+    --surface:#F4EEE2;
+    --walnut:#382819;
+    --ink:#534537;
+    --ink-soft:#6b5b4b;
+    --brass:#9F7A35;
+    --red:#963826;
+    --rule:rgba(56,40,25,.16);
+    --rule-strong:rgba(56,40,25,.3);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding:clamp(16px,4vw,56px);
+  }
+  .sheet{
+    max-width:1040px;margin:0 auto;
+    background:var(--surface);
+    border:1px solid var(--rule-strong);
+    box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 24px 60px -36px rgba(56,40,25,.5);
+  }
+
+  /* ---------- Signature : la réglette de métrologie / frise Prairie ---------- */
+  .scale{
+    height:20px;width:100%;position:relative;
+    background:
+      repeating-linear-gradient(90deg,var(--brass) 0 1.5px,transparent 1.5px 48px) bottom/100% 15px no-repeat,
+      repeating-linear-gradient(90deg,var(--rule-strong) 0 1px,transparent 1px 9.6px) bottom/100% 8px no-repeat,
+      linear-gradient(var(--walnut),var(--walnut)) bottom/100% 2px no-repeat;
+  }
+  .scale::after{
+    content:"";position:absolute;bottom:13px;width:7px;height:7px;
+    background:var(--red);left:calc(48px * 4 - 3px);
+  }
+
+  /* ---------- En-tête ---------- */
+  header{display:flex;gap:clamp(20px,4vw,40px);align-items:center;
+    padding:clamp(28px,5vw,52px) clamp(24px,5vw,56px) clamp(22px,4vw,38px);}
+  .portrait{
+    flex:0 0 auto;width:clamp(96px,16vw,140px);height:clamp(96px,16vw,140px);
+    position:relative;border-radius:50%;overflow:hidden;
+    background:var(--walnut);display:grid;place-items:center;
+    box-shadow:0 0 0 1px var(--rule-strong), 0 0 0 6px var(--surface), 0 0 0 7px var(--brass);
+  }
+  .portrait span{font-family:'Jost',sans-serif;font-weight:500;font-size:clamp(2rem,5vw,2.8rem);
+    color:var(--brass);letter-spacing:.04em}
+  .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .head-text{flex:1 1 auto;min-width:0}
+  .eyebrow{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.68rem;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--brass);margin-bottom:.7rem}
+  h1{font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.02em;line-height:1;
+    font-size:clamp(2.1rem,6vw,3.6rem);color:var(--walnut);text-transform:uppercase}
+  .role{font-family:'Jost',sans-serif;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+    font-size:clamp(.82rem,2.2vw,1.02rem);color:var(--red);margin-top:.55rem}
+
+  /* ---------- Corps : deux colonnes ---------- */
+  .body{display:grid;grid-template-columns:300px 1fr}
+  aside{background:rgba(56,40,25,.04);border-right:1px solid var(--rule);
+    padding:clamp(24px,3vw,34px) clamp(22px,3vw,30px)}
+  main{padding:clamp(24px,3vw,38px) clamp(24px,4vw,46px)}
+
+  .block{margin-bottom:2.1rem}
+  .block:last-child{margin-bottom:0}
+  h2{font-family:'Jost',sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.2em;
+    font-size:.82rem;color:var(--walnut);margin-bottom:1rem;
+    display:flex;align-items:center;gap:.7rem}
+  h2::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+  /* contact */
+  .contact{list-style:none;display:grid;gap:.6rem;font-size:.86rem}
+  .contact li{display:flex;gap:.7rem;align-items:flex-start}
+  .contact svg{flex:0 0 16px;width:16px;height:16px;margin-top:.18rem;stroke:var(--brass)}
+  .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;
+    transition:border-color .15s,color .15s;word-break:break-word}
+  .contact a:hover,.contact a:focus-visible{color:var(--red);border-color:var(--red)}
+
+  /* compétences */
+  .tags{display:flex;flex-wrap:wrap;gap:.5rem}
+  .tags span{font-size:.76rem;letter-spacing:.02em;padding:.34rem .7rem;
+    background:var(--surface);border:1px solid var(--rule-strong);color:var(--ink);
+    border-radius:2px}
+
+  /* langues */
+  .lang{margin-bottom:.85rem}
+  .lang:last-child{margin-bottom:0}
+  .lang-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.32rem}
+  .lang-top b{font-weight:500;color:var(--walnut);font-size:.88rem}
+  .lang-top em{font-family:'IBM Plex Mono',ui-monospace,monospace;font-style:normal;
+    font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .meter{height:5px;background:var(--rule);position:relative;overflow:hidden}
+  .meter i{position:absolute;inset:0 auto 0 0;background:var(--brass)}
+
+  /* intérêts */
+  .interests{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.7rem .5rem;font-size:.85rem}
+  .interests li{display:flex;gap:.55rem;align-items:center;color:var(--ink)}
+  .interests svg{width:16px;height:16px;stroke:var(--brass);flex:0 0 16px}
+
+  /* profil */
+  .profil{font-size:1rem;line-height:1.72;color:var(--ink)}
+  .profil::first-letter{font-family:'Jost',sans-serif;font-weight:600;font-size:3.1rem;float:left;
+    line-height:.78;margin:.1rem .6rem 0 0;color:var(--red)}
+
+  /* formations */
+  .edu{list-style:none;display:grid;gap:.85rem}
+  .edu li{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:baseline}
+  .edu .yr{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.78rem;color:var(--brass);
+    font-weight:500;white-space:nowrap}
+  .edu .deg{color:var(--ink);font-size:.92rem}
+
+  /* expériences : timeline avec ticks */
+  .xp{position:relative;padding-left:1.6rem;margin-bottom:1.9rem}
+  .xp:last-child{margin-bottom:0}
+  .xp::before{content:"";position:absolute;left:4px;top:.5rem;bottom:-1.9rem;
+    width:1px;background:var(--rule)}
+  .xp:last-child::before{display:none}
+  .xp::after{content:"";position:absolute;left:0;top:.42rem;width:9px;height:9px;
+    background:var(--surface);border:2px solid var(--brass)}
+  .xp .when{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.72rem;letter-spacing:.06em;
+    color:var(--red);text-transform:uppercase}
+  .xp .what{font-family:'Jost',sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.06em;
+    font-size:.96rem;color:var(--walnut);margin:.25rem 0 .1rem}
+  .xp .where{font-size:.82rem;color:var(--ink-soft);margin-bottom:.65rem;font-style:italic}
+  .xp ul{list-style:none;display:grid;gap:.45rem}
+  .xp ul li{position:relative;padding-left:1rem;font-size:.9rem;color:var(--ink);line-height:1.55}
+  .xp ul li::before{content:"";position:absolute;left:0;top:.6rem;width:5px;height:5px;
+    background:var(--brass);transform:rotate(45deg)}
+
+  /* pied */
+  footer{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;
+    padding:clamp(18px,3vw,26px) clamp(24px,4vw,46px);border-top:1px solid var(--rule);
+    background:rgba(56,40,25,.04)}
+  footer p{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.68rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-soft)}
+  .print-btn{font-family:'Jost',sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.14em;
+    font-size:.74rem;color:var(--surface);background:var(--walnut);border:none;cursor:pointer;
+    padding:.7rem 1.3rem;display:inline-flex;align-items:center;gap:.55rem;transition:background .15s}
+  .print-btn:hover,.print-btn:focus-visible{background:var(--red)}
+  .print-btn svg{width:15px;height:15px;stroke:var(--surface)}
+
+  a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+  /* apparition douce */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* responsive */
+  @media(max-width:760px){
+    .body{grid-template-columns:1fr}
+    aside{border-right:none;border-bottom:1px solid var(--rule)}
+    header{flex-direction:column;text-align:center}
+    h2::after{display:none}
+    h2{justify-content:center}
+    .contact li{justify-content:center}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* impression PDF */
+  @media print{
+    body{background:#fff;padding:0;font-size:11pt}
+    .sheet{box-shadow:none;border:none;max-width:none}
+    footer .print-btn{display:none}
+    aside{background:#f6f2ea !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .reveal{opacity:1;transform:none}
+    .xp,.block{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+  <article class="sheet">
+    <div class="scale" aria-hidden="true"></div>
+
+    <header>
+      <div class="portrait">
+        <span aria-hidden="true">DP</span>
+        <img src="photo.jpg" alt="Portrait de Damien Poizat" onerror="this.remove()">
+      </div>
+      <div class="head-text">
+        <p class="eyebrow">Curriculum Vitæ</p>
+        <h1>Damien Poizat</h1>
+        <p class="role">Responsable Opérationnel de Laboratoire</p>
+      </div>
+    </header>
+
+    <div class="body">
+      <aside>
+        <div class="block reveal">
+          <h2>Contact</h2>
+          <ul class="contact">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Saint-Alban-du-Rhône</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <a href="mailto:damien.pzt@gmail.com">damien.pzt@gmail.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+              <a href="tel:+33786953510">07 86 95 35 10</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 0 1-2-2v-2h18v2a2 2 0 0 1-2 2M6 13l1.5-4.5A2 2 0 0 1 9.4 7h5.2a2 2 0 0 1 1.9 1.5L18 13"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg>
+              <span>Permis + Véhicule</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="block reveal">
+          <h2>Compétences</h2>
+          <div class="tags">
+            <span>Management</span>
+            <span>Gestion de projets</span>
+            <span>Validation scientifique</span>
+            <span>ISO 17025</span>
+            <span>Métrologie</span>
+            <span>Ingénierie de données</span>
+            <span>Optimisation opérationnelle</span>
+            <span>KPI</span>
+          </div>
+        </div>
+
+        <div class="block reveal">
+          <h2>Langues</h2>
+          <div class="lang">
+            <div class="lang-top"><b>Français</b><em>Natif</em></div>
+            <div class="meter"><i style="width:100%"></i></div>
+          </div>
+          <div class="lang">
+            <div class="lang-top"><b>Anglais</b><em>Professionnel</em></div>
+            <div class="meter"><i style="width:75%"></i></div>
+          </div>
+          <div class="lang">
+            <div class="lang-top"><b>Japonais</b><em>Scolaire</em></div>
+            <div class="meter"><i style="width:35%"></i></div>
+          </div>
+        </div>
+
+        <div class="block reveal">
+          <h2>Centres d'intérêt</h2>
+          <ul class="interests">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z"/><circle cx="12" cy="13" r="3.5"/></svg>
+              <span>Photographie</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M2 20h20M8 16v4M16 16v4"/></svg>
+              <span>Hardware · Tech</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M7 4v9M11 4v9M15 4v9M9 13v3M13 13v3"/></svg>
+              <span>Piano</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 20 5-9 4 5 3-4 6 8Z"/><circle cx="9" cy="6" r="2"/></svg>
+              <span>Randonnée</span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <main>
+        <div class="block reveal">
+          <h2>Profil</h2>
+          <p class="profil">Manager expert en encadrement d'équipes techniques et pilotage de systèmes ISO 17025. J'optimise l'allocation des ressources via une maîtrise avancée de la data pour garantir la performance et la conformité. Résilient et orienté solutions, je transforme les défis de haute pression en leviers d'efficacité opérationnelle.</p>
+        </div>
+
+        <div class="block reveal">
+          <h2>Expériences</h2>
+
+          <div class="xp">
+            <p class="when">03/2026 — En poste</p>
+            <h3 class="what">Manager Qualité / Responsable de Laboratoire</h3>
+            <p class="where">Vulcain Engineering · Aubert &amp; Duval</p>
+            <ul>
+              <li>Management opérationnel d'une équipe de 10 personnes (opérateurs &amp; techniciens).</li>
+              <li>Pilotage du maintien de l'accréditation ISO 17025 en environnement industriel.</li>
+              <li>Optimisation des flux analytiques et des ressources pour garantir la conformité et les délais de production.</li>
+            </ul>
+          </div>
+
+          <div class="xp">
+            <p class="when">10/2021 — 02/2025</p>
+            <h3 class="what">Responsable Technique, Qualité &amp; Métrologie</h3>
+            <p class="where">VirHealth</p>
+            <ul>
+              <li>Direction des opérations et des ressources du laboratoire en lien direct avec le Dirigeant.</li>
+              <li>Management et montée en compétences d'une équipe de 5 personnes (4 techniciens &amp; 1 ingénieur).</li>
+              <li>Chef de projet sur le transfert intégral du laboratoire : conception des plans, gestion des flux, coordination avec architecte/ingénierie et réception de chantier.</li>
+              <li>Validation scientifique des essais, rédaction et signature des rapports ISO 17025.</li>
+              <li>Développement d'outils pour la génération de rapports automatisés.</li>
+              <li>Pilotage du système ISO 9001 jusqu'à l'accréditation ISO 17025.</li>
+              <li>Responsable du parc instrumental (métrologie) et des achats techniques du laboratoire.</li>
+            </ul>
+          </div>
+
+          <div class="xp">
+            <p class="when">02/2019 — 09/2021</p>
+            <h3 class="what">Assistant Affaires Réglementaires</h3>
+            <p class="where">TETRA Médical</p>
+            <ul>
+              <li>Coordination transverse entre qualité, production et R&amp;D pour garantir la conformité technique des nouveaux produits (dispositifs médicaux).</li>
+              <li>Mise en conformité MDR 2017/745 et déploiement stratégique de l'UDI.</li>
+              <li>Maintien à jour du système documentaire qualité et technique.</li>
+            </ul>
+          </div>
+
+          <div class="xp">
+            <p class="when">02/2017 — 12/2017</p>
+            <h3 class="what">Analytics Technician</h3>
+            <p class="where">IMPAC Ingénierie · Pierre Fabre</p>
+            <ul>
+              <li>Développement de dashboards KPI via Power Query et Tableau pour le pilotage de la Qualité R&amp;D.</li>
+              <li>Automatisation des flux de données (ETL, VBA) pour sécuriser le reporting d'activité.</li>
+              <li>Animation d'ateliers utilisateurs pour l'adoption des outils d'aide à la décision.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="block reveal">
+          <h2>Formations</h2>
+          <ul class="edu">
+            <li><span class="yr">2025</span><span class="deg">Master 1 Concepteur / Développeur en IA &amp; Analyses Big Data</span></li>
+            <li><span class="yr">2016</span><span class="deg">Licence Professionnelle Qualité de la Production</span></li>
+            <li><span class="yr">2015</span><span class="deg">BTS Bioanalyses &amp; Contrôles</span></li>
+            <li><span class="yr">2012</span><span class="deg">Bac STL Chimie de Laboratoire &amp; Procédés industriels</span></li>
+          </ul>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <p>Damien Poizat · MAJ 2026</p>
+      <button class="print-btn" onclick="window.print()">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6Z"/></svg>
+        Télécharger en PDF
+      </button>
+    </footer>
+  </article>
+
+  <script>
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
